@@ -64,23 +64,23 @@ class ChartEntry:
             return s
 
     def json(self):
-        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4, ensure_ascii=False)
 
 
 class ChartData:
     """Represents a particular Bugs chart by a particular period.
     Attributes:
-        chart_type: The chart type.
-        chart_preiod: The period for the chart.
-        image_size: The size of cover image for the track. (default: 256)
+        chartType: The chart type.
+        chartPeriod: The period for the chart.
+        imageSize: The size of cover image for the track. (default: 256)
         fetch: A boolean value that indicates whether to retrieve the chart data immediately. If set to `False`, you can fetch the data later using the `fetchEntries()` method.
     """
-    def __init__(self, chart_type: BugsChartType = BugsChartType.All,
-                 chart_period: BugsChartPeriod = BugsChartPeriod.Realtime, image_size: int = 256,
+    def __init__(self, chartType: BugsChartType = BugsChartType.All,
+                 chartPeriod: BugsChartPeriod = BugsChartPeriod.Realtime, imageSize: int = 256,
                  fetch: bool = True):
-        self.chart_type = chart_type
-        self.chart_period = chart_period
-        self.image_size = image_size
+        self.chartType = chartType
+        self.chartPeriod = chartPeriod
+        self.imageSize = imageSize
         self.entries = []
 
         if fetch:
@@ -93,7 +93,7 @@ class ChartData:
         return len(self.entries)
 
     def json(self):
-        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4, ensure_ascii=False)
 
     def fetchEntries(self):
         headers = {
@@ -101,8 +101,8 @@ class ChartData:
         }
 
         data = {
-            "period_tp": self.chart_period,
-            "svc_type": self.chart_type,
+            "period_tp": self.chartPeriod,
+            "svc_type": self.chartType,
             "size": 100,
         }
 
@@ -130,7 +130,7 @@ class ChartData:
                 entry = ChartEntry(
                     title=item['track_title'],
                     artist=item['artists'][0]['artist_nm'],
-                    image=f"{_IMAGE_PREFIX_URL}/{self.image_size}{item['album']['image']['path']}",
+                    image=f"{_IMAGE_PREFIX_URL}/{self.imageSize}{item['album']['image']['path']}",
                     rank=int(item['list_attr']['rank']),
                     peakPos=int(item['list_attr']['rank_peak']),
                     lastPos=int(item['list_attr']['rank_last']),

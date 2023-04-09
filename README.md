@@ -12,21 +12,28 @@ pip install bugs-chart.py
 The main usage of bugs-chart.py is similar to [billboard.py](https://github.com/guoguo12/billboard-charts).
 ```commandline
 >>> from bugs import *
->>> chart = ChartData(chart_type=BugsChartType.Domestic)
->>> print(chart[0])
-'Kitsch' by IVE (아이브)
+>>> chart = ChartData(chartType=BugsChartType.Domestic)
+>>> print(chart[0].json())
+{
+    "artist": "IVE (아이브)",
+    "image": "https://image.bugsm.co.kr/album/images/256/40849/4084947.jpg",
+    "lastPos": 1,
+    "peakPos": 1,
+    "rank": 1,
+    "title": "Kitsch"
+}
 ```
 
 ### ChartData Arguments
-- `chart_type`
+- `chartType`
   - BugsChartType.All – 전체
   - BugsChartType.Domestic – 국내
   - BugsChartType.International – 해외
-- `chart_preiod`
+- `chartPeriod`
   - BugsChartPeriod.Realtime – 실시간
   - BugsChartPeriod.Daily – 일간
   - BugsChartPeriod.Weekly – 주간
-- `image_size` – The size of cover image for the track. (default: 256)
+- `imageSize` – The size of cover image for the track. (default: 256)
 - `fetch` – A boolean value that indicates whether to retrieve the chart data immediately. If set to `False`, you can fetch the data later using the `fetchEntries()` method.
 
 ### Chart entry attributes

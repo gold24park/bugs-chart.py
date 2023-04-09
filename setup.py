@@ -7,13 +7,13 @@ with open("README.md", "r") as fh:
 
 setup(
     name="bugs-chart.py",
-    version="1.0.2",
+    version="1.0.3",
     description="Python API for downloading Bugs charts",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Lou Park",
     author_email="gold24park@gmail.com",
-    url="https://github.com/gold24park/bugs-chart",
+    url="https://github.com/gold24park/bugs-chart.py",
     py_modules=["bugs"],
     license="MIT License",
     install_requires=["requests >= 2.28.2"],
