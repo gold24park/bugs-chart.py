@@ -1,7 +1,16 @@
-# bugs-chart.py
-![bugs](./image.png)
+Metadata-Version: 2.1
+Name: bugs-chart.py
+Version: 1.0.2
+Summary: Python API for downloading Bugs charts
+Home-page: https://github.com/gold24park/bugs-chart
+Author: Lou Park
+Author-email: gold24park@gmail.com
+License: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
 
-bugs-chart.py is a Python API that retrieves the TOP 100 information from the [Bugs](https://music.bugs.co.kr/).
+# bugs-chart.py
+bugs-chart.py is a Python API that retrieves the TOP 100 information from the 'Bugs'.
 
 ## Installation
 ```commandline

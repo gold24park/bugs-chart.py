@@ -1,0 +1,9 @@
+LICENSE
+README.md
+bugs.py
+setup.py
+bugs_chart.py.egg-info/PKG-INFO
+bugs_chart.py.egg-info/SOURCES.txt
+bugs_chart.py.egg-info/dependency_links.txt
+bugs_chart.py.egg-info/requires.txt
+bugs_chart.py.egg-info/top_level.txt
