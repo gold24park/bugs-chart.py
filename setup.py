@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="bugs-chart.py",
-    version="1.0.3",
+    version="1.0.4",
     description="Python API for downloading Bugs charts",
     long_description=long_description,
     long_description_content_type="text/markdown",

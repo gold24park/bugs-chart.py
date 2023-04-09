@@ -1,6 +1,6 @@
 import json
 import sys
-
+from datetime import datetime
 import requests
 
 _USER_AGENT = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36"
@@ -38,6 +38,7 @@ class ChartEntry:
         lastPos: The track's last position on the previous period.
         rank: The track's current rank position on the chart.
     """
+
     def __init__(self, title: str, artist: str, image: str, peakPos: int, lastPos: int, rank: int):
         self.title = title
         self.artist = artist
@@ -70,11 +71,13 @@ class ChartEntry:
 class ChartData:
     """Represents a particular Bugs chart by a particular period.
     Attributes:
+        date: The chart date.
         chartType: The chart type.
         chartPeriod: The period for the chart.
         imageSize: The size of cover image for the track. (default: 256)
         fetch: A boolean value that indicates whether to retrieve the chart data immediately. If set to `False`, you can fetch the data later using the `fetchEntries()` method.
     """
+
     def __init__(self, chartType: BugsChartType = BugsChartType.All,
                  chartPeriod: BugsChartPeriod = BugsChartPeriod.Realtime, imageSize: int = 256,
                  fetch: bool = True):
@@ -125,6 +128,7 @@ class ChartData:
 
     def _parseEntries(self, data):
         try:
+            self.date = self._parseDate(int(data['info']['end_dt']))
             list = data['list']
             for item in list:
                 entry = ChartEntry(
@@ -138,3 +142,7 @@ class ChartData:
                 self.entries.append(entry)
         except Exception as e:
             raise BugsChartParseException(e)
+
+    def _parseDate(self, timestamp_ms):
+        timestamp_s = timestamp_ms / 1000
+        return datetime.utcfromtimestamp(timestamp_s)

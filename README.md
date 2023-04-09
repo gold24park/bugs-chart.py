@@ -22,9 +22,12 @@ The main usage of bugs-chart.py is similar to [billboard.py](https://github.com/
     "rank": 1,
     "title": "Kitsch"
 }
+>>> print(chart.date)
+2023-04-09 12:00:00
 ```
 
 ### ChartData Arguments
+- `date` – The chart date
 - `chartType`
   - BugsChartType.All – 전체
   - BugsChartType.Domestic – 국내
