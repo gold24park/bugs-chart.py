@@ -9,7 +9,7 @@ pip install bugs-chart.py
 ```
 
 ## Quickstart
-The main usage of bugs-chart.py is similar to [billboard.py](https://github.com/guoguo12/billboard-chart).
+The main usage of bugs-chart.py is similar to [billboard.py](https://github.com/guoguo12/billboard-charts).
 ```commandline
 >>> from bugs import *
 >>> chart = ChartData(chart_type=BugsChartType.Domestic)
