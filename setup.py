@@ -2,9 +2,12 @@
 
 from setuptools import setup
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
     name="bugs-chart.py",
-    version="1.0.0",
+    version="1.0.1",
     description="Python API for downloading Bugs charts",
     author="Lou Park",
     author_email="gold24park@gmail.com",
