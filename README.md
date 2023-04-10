@@ -1,4 +1,4 @@
-# bugs-chart.py
+# 🅱️ 벅스차트 API : bugs-chart.py
 ![bugs](./image.png)
 
 bugs-chart.py is a Python API that retrieves the TOP 100 information from the [Bugs](https://music.bugs.co.kr/).
